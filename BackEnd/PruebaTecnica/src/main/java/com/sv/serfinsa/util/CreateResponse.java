@@ -5,9 +5,9 @@ import java.util.Date;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.sv.serfinsa.dto.generic.DataResponse;
-import com.sv.serfinsa.dto.generic.Metadata;
-import com.sv.serfinsa.dto.generic.Response;
+import com.sv.serfinsa.dto.DataResponse;
+import com.sv.serfinsa.dto.Metadata;
+import com.sv.serfinsa.dto.Response;
 
 
 public final class CreateResponse {
@@ -16,7 +16,6 @@ public final class CreateResponse {
         throw new IllegalStateException("CreationResponse class");
     }
 
-    
     public static ResponseEntity<Object> returnResponseError(Metadata metadata, Object error){
         return new ResponseEntity<>(createResponse(transforResponse(metadata), error), HttpStatus.INTERNAL_SERVER_ERROR);
     }

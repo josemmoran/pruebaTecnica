@@ -2,7 +2,7 @@ package com.sv.serfinsa.service;
 
 import java.util.List;
 
-import com.sv.serfinsa.dto.generic.ErrorResponse;
+import com.sv.serfinsa.dto.ErrorResponse;
 import com.sv.serfinsa.entity.Producto;
 
 public interface ServiceProducto {

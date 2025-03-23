@@ -1,11 +1,10 @@
 package com.sv.serfinsa.validation;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.sv.serfinsa.dto.generic.ErrorResponse;
+import com.sv.serfinsa.dto.ErrorResponse;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Path;
@@ -16,7 +15,7 @@ import jakarta.validation.ValidatorFactory;
 
 public final class ValidationRequest {
 
-    
+
     public static <T> List<ErrorResponse> validation(T object){
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
@@ -65,6 +64,4 @@ public final class ValidationRequest {
 
         return "No name";
     }
-
-
 }

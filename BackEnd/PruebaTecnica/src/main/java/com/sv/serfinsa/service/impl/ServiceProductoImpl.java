@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sv.serfinsa.dto.generic.ErrorResponse;
+import com.sv.serfinsa.dto.ErrorResponse;
 import com.sv.serfinsa.entity.Producto;
 import com.sv.serfinsa.repository.ProductoRepository;
 import com.sv.serfinsa.service.ServiceProducto;
@@ -53,7 +53,7 @@ public class ServiceProductoImpl implements ServiceProducto {
 				
 			} else {
 				LOG.info("error al guardar datos ");
-				return new ErrorResponse("017", "Error al guardar", "Error al guardar producto");
+				return new ErrorResponse("012", "Error al guardar", "Error al guardar producto");
 			}
 		} 
 		catch (Exception e) {
@@ -65,14 +65,32 @@ public class ServiceProductoImpl implements ServiceProducto {
 
 	@Override
 	public ErrorResponse deleteProduct(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		if(repo.existsById(id)) {
+			Optional<Producto> prod = repo.findById(id);
+			try {
+				repo.delete(prod.get());
+				return new ErrorResponse("000", "Registro eliminado correctamente", "El registro a eliminado correctamente");
+			} catch (Exception e) {
+				LOG.info("error {0}", e);
+				return new ErrorResponse("011", "Error generico", "Error al realizar accion");
+			}
+			
+		}
+		else {
+			return new ErrorResponse("013", "Usuario inexistente", "validar usuario inexistente");
+		}
+		
 	}
 
 	@Override
 	public Object findById(Integer id) {
-					// TODO Auto-generated method stub
-		return null;
+		if(repo.existsById(id)) {
+			Optional<Producto> prod = repo.findById(id);
+			return prod.get();
+		}
+		else {
+			return new ErrorResponse("013", "Usuario inexistente", "validar usuario inexistente");
+		}
 	}
 
 

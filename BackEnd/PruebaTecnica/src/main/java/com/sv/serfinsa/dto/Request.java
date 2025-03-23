@@ -1,4 +1,4 @@
-package com.sv.serfinsa.dto.generic;
+package com.sv.serfinsa.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sv.serfinsa.util.Constant;

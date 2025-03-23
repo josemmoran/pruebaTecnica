@@ -1,4 +1,4 @@
-package com.sv.serfinsa.dto.generic;
+package com.sv.serfinsa.dto;
 
 public class DataResponse {
 	
